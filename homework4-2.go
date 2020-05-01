@@ -20,11 +20,9 @@ func (p People) Len() int {
 	return len(p)
 }
 
+//Less compares fields of a Person elements.
+//Used for ascending sort by Name and Age.  
 func (p People) Less(i, j int) bool {
-	//Firstly, compare firstName n lastName strings
-	//then if they are equal for both Persons
-	//choose a youngest Person
-
 	if strings.Compare(p[i].firstName, p[j].firstName) == 0 {
 		if strings.Compare(p[i].lastName, p[j].lastName) == 0 {
 			return p[j].birthDay.Before(p[i].birthDay)
